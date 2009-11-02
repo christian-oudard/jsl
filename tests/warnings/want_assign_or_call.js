@@ -21,5 +21,8 @@ function want_assign_or_call() {
     delete a;
 
     a.b();
+
+    function Thing() {}
+    new Thing(0); /*warning:want_assign_or_call*/
 }
 

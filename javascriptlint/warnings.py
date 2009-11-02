@@ -512,7 +512,7 @@ def want_assign_or_call(node):
         return
     # Allow new function() { } as statements.
     if child.kind == tok.NEW:
-        grandchild, = child.kids
+        grandchild = child.kids[0]
         if grandchild.kind == tok.FUNCTION:
             return
     raise LintWarning, child
