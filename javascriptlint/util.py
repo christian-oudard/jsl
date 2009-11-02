@@ -54,6 +54,10 @@ def readfile(path):
     contents = file.read()
     if contents and contents[0] == unicode(codecs.BOM_UTF8, 'utf8'):
         contents = contents[1:]
+
+    # Remove all non-ascii characters.
+    contents = contents.encode('ascii', 'ignore')
+
     return contents
 
 def normpath(path):
